@@ -28,7 +28,7 @@ public class Building {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    private int lon;
-    private int lat;
+    private double lon;
+    private double lat;
 
 }
