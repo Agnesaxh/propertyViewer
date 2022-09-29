@@ -13,6 +13,4 @@ public class GeoLocationResponse {
 
     private List<GeoLocationResponseData> results;
 
-
-
 }

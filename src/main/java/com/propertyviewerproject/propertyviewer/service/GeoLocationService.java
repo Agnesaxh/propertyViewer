@@ -3,6 +3,7 @@ package com.propertyviewerproject.propertyviewer.service;
 import com.propertyviewerproject.propertyviewer.dto.GeoLocationResponse;
 import com.propertyviewerproject.propertyviewer.dto.GeoLocationResponseData;
 import com.propertyviewerproject.propertyviewer.entity.Building;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -15,6 +16,7 @@ public class GeoLocationService {
 
     @Value("${geolocation.api.key}")
     private String apiKey;
+    @Autowired
     private RestTemplate restTemplate;
 
     public GeoLocationService(RestTemplate restTemplate){

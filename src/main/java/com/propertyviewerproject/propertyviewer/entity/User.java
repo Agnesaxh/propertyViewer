@@ -24,4 +24,5 @@ public class User {
 
     @OneToMany
     private List<Building> buildings;
+
 }
