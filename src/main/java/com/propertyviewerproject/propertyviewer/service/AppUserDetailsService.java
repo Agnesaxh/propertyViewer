@@ -11,12 +11,12 @@ public class AppUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    public AppUserDetailsService(UserRepository userRepository){
+    public AppUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException("User does not exists!"));
+        return userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User does not exists!"));
     }
 }

@@ -1,6 +1,7 @@
 package com.propertyviewerproject.propertyviewer.controller;
 
 import com.propertyviewerproject.propertyviewer.entity.User;
+import com.propertyviewerproject.propertyviewer.exception.ResourceExistsException;
 import com.propertyviewerproject.propertyviewer.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,8 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable User user) {
-        userService.deleteUser(user);
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 
     @PutMapping("/users")

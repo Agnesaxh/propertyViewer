@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -19,9 +20,7 @@ public class BuildingController {
     }
 
     @PostMapping("/buildings")
-    public ResponseEntity<?> addBuilding(
-            @RequestBody List<Building> building,
-            Authentication authentication) {
+    public ResponseEntity<?> addBuilding(@RequestBody List<Building> building, Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         buildingService.saveBuilding(building, user);
         return ResponseEntity.ok().build();
@@ -43,12 +42,14 @@ public class BuildingController {
         return buildingService.findBuildingById(id, user);
     }
 
-    @DeleteMapping("/buildings/id")
-    public void deleteBuilding(long id, Authentication authentication) {
+    @DeleteMapping("/buildings/{id}")
+    public void deleteBuilding(@PathVariable long id, Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         buildingService.deleteBuilding(id, user);
     }
 
+
+    //remove the hard code in page and the lon and lat
     @PutMapping("/buildings")
     public Building updateBuilding(
             Building building,

@@ -5,10 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.propertyviewerproject.propertyviewer.dto.GeoLocationResponse;
 import com.propertyviewerproject.propertyviewer.dto.GeoLocationResponseData;
 import com.propertyviewerproject.propertyviewer.entity.Building;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -24,6 +24,7 @@ public class GeoLocationService {
     private HttpClient httpClient;
     private ObjectMapper objectMapper;
 
+    @Autowired
     public GeoLocationService(
             HttpClient httpClient,
             ObjectMapper objectMapper) {

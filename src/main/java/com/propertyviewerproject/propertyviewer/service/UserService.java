@@ -1,6 +1,4 @@
 package com.propertyviewerproject.propertyviewer.service;
-
-
 import com.propertyviewerproject.propertyviewer.entity.User;
 import com.propertyviewerproject.propertyviewer.exception.NotFoundException;
 import com.propertyviewerproject.propertyviewer.exception.ResourceExistsException;
@@ -34,8 +32,8 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
 
     public User updateUser(User user) {
